@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenya Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-screen" class="screen">
+        <h1>Kenya Quiz</h1>
+        <p>Test your knowledge with 15 questions. You get 15 seconds per question!</p>
+        <button id="start-btn">Start Quiz</button>
+        <p id="last-score"></p>
+    </div>
+
+    <div id="quiz-screen" class="screen hidden">
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="quiz-top">
+            <span id="question-counter">Question 1 of 15</span>
+            <span id="score-display">Score: 0</span>
+            <span id="timer">15</span>
+        </div>
+
+        <h2 id="question-text"></h2>
+        <div id="options-container">
+            <button class="option-btn" data-index="0"></button>
+            <button class="option-btn" data-index="1"></button>
+            <button class="option-btn" data-index="2"></button>
+            <button class="option-btn" data-index="3"></button>
+        </div>
+    </div>
+
+    <div id="results-screen" class="screen hidden">
+        <h2>Quiz Complete!</h2>
+        <p id="final-score"></p>
+        <p id="final-percentage"></p>
+        <p id="final-grade"></p>
+        <p id="final-message"></p>
+        <button id="review-btn">Review Questions</button>
+        <button id="restart-btn">Restart Quiz</button>
+    </div>
+
+    <div id="review-screen" class="screen hidden">
+        <h2>Review</h2>
+        <div id="review-container"></div>
+        <button id="back-to-results-btn">Back to Results</button>
+    </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+    
+</body>
+</html>
