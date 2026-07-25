@@ -101,7 +101,7 @@ function startTimer() {
     quiz.timerId = setInterval (() => {
         quiz.timeLeft--;
         timer.textContent = quiz.timeLeft;
-        console.log("Time left:", quiz.timeLeft);
+        console.log(`Time left: ${quiz.timeLeft--}`);
 
         if (quiz.timeLeft <= 0 ) {
             clearInterval(quiz.timerId);
@@ -117,7 +117,7 @@ function handleAnswer (selectedIndex) {
 
     const qstn = quizQuestions[quiz.currentIndex];
     const isCorrect = selectedIndex === qstn.correct;
-    console.log('Selected:', selectedIndex, '| Correct:', qstn.correct, '| isCorrect:', isCorrect);
+    console.log(`Selected: ${selectedIndex} | Correct: ${qstn.correct} | isCorrect: ${isCorrect}`);
 
     optionButtons.forEach((btn, index) => {
         btn.disabled = true;
@@ -159,6 +159,7 @@ function showResults() {
     const total = quizQuestions.length;
     const percentage = Math.round((quiz.score / total) * 100);
     const grade = getGrade(percentage);
+    console.log(`Final: ${quiz.score}/${total} = ${percentage}% Grade: ${grade}`);
  
     finalScore.textContent = `You got ${quiz.score} out of ${total}`;
     finalPercentage.textContent = `${percentage}%`;
@@ -196,3 +197,35 @@ function saveScore(score, total) {
     };
     localStorage.setItem("lastQuizScore", JSON.stringify(data));
 }
+
+function showReview() {
+    reviewContainer.innerHTML = "";
+
+    quiz.answers.forEach((answer, index) =>{
+        const card = document.createElement("div");
+        card.className = "review-card";
+
+        const question = document.createElement("p");
+        question.className = "review-question";
+        question.textContent = `${index + 1}. ${answer.question}`;
+        card.appendChild(question);
+
+        answer.options.forEach((optionText, index) => {
+           const option = document.createElement("p");
+           option.className = "review-option";
+           option.textContent = optionText;
+           if (index === answer.correctIndex) {
+            option.classList.add("Correct");
+           } else if (index === selectedIndex) {
+            option.classList.add("Wrong");
+           }
+           card.appendChild(option);
+        });
+
+        reviewContainer.appendChild(card);
+    });
+
+    showScreen(reviewScreen);
+}
+
+init();
