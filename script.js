@@ -55,7 +55,9 @@ function init () {
         btn.addEventListener("click", () => handleAnswer(Number(btn.dataset.index)));
     });
 
-    
+    reviewBtn.addEventListener("click", showReview);
+    restartBtn.addEventListener("click", restartQuiz);
+    backToResultsBtn.addEventListener("click", () => showScreen(resultsScreen)); 
 }
 
 function startQuiz() {
@@ -71,6 +73,8 @@ function restartQuiz() {
 }
 
 function loadQuestion() {
+    // updateProgressBar();
+    startTimer();
     quiz.isAnswered = false;
     const qstn = quizQuestions[quiz.currentIndex];
     console.log("Loading Question", quiz.currentIndex, qstn);
@@ -84,8 +88,7 @@ function loadQuestion() {
 
     questionCounter.textContent = `Question ${quiz.currentIndex + 1} of ${quizQuestions.length}` ;
     scoreDisplay.textContent = `Score: ${quiz.score}` ;
-    updateProgressBar();
-    startTimer();
+
 }
 
 function updateProgressBar() {
@@ -101,7 +104,7 @@ function startTimer() {
     quiz.timerId = setInterval (() => {
         quiz.timeLeft--;
         timer.textContent = quiz.timeLeft;
-        console.log(`Time left: ${quiz.timeLeft--}`);
+        console.log(`Time left: ${quiz.timeLeft}`);
 
         if (quiz.timeLeft <= 0 ) {
             clearInterval(quiz.timerId);
@@ -137,7 +140,7 @@ function handleAnswer (selectedIndex) {
         question: qstn.question,
         options: qstn.options,
         selectedIndex: selectedIndex,
-        corectIndex: qstn.correct,
+        correctIndex: qstn.correct,
         isCorrect: isCorrect
     });
 
@@ -146,6 +149,7 @@ function handleAnswer (selectedIndex) {
 
 function nextQuestion () {
     quiz.currentIndex++;
+    console.log("nextQuestion, currentIndex is now:", quiz.currentIndex , "total:", quizQuestions.length);
     if (quiz.currentIndex < quizQuestions.length) {
         loadQuestion();
     } else {
