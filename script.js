@@ -125,9 +125,9 @@ function handleAnswer (selectedIndex) {
     optionButtons.forEach((btn, index) => {
         btn.disabled = true;
         if(index === qstn.correct) {
-            btn.classList.add("Correct");
+            btn.classList.add("correct");
         } else if (index === selectedIndex) {
-            btn.classList.add("Wrong");
+            btn.classList.add("wrong");
         }
     });
 
