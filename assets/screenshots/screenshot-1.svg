@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#6DD3FF" />
+      <stop offset="1" stop-color="#7AA7FF" />
+    </linearGradient>
+    <style>
+      .bg { fill: url(#g); }
+      .card { fill: #ffffff; stroke: #e6eefb; stroke-width:2; rx:12; }
+      .title { font: 700 42px 'Segoe UI', Roboto, sans-serif; fill:#0f172a; }
+      .question { font: 600 28px 'Segoe UI', Roboto, sans-serif; fill:#0f172a; }
+      .option { font: 500 22px 'Segoe UI', Roboto, sans-serif; fill:#0f172a; }
+      .timer { font: 600 18px 'Segoe UI', Roboto, sans-serif; fill:#0f172a; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="675" class="bg" />
+
+  <!-- App header -->
+  <g transform="translate(60,40)">
+    <rect x="0" y="0" width="1080" height="120" class="card" />
+    <text x="32" y="52" class="title">Quiz App</text>
+    <text x="980" y="52" class="timer" text-anchor="end">Time: 01:12</text>
+  </g>
+
+  <!-- Question card -->
+  <g transform="translate(60,190)">
+    <rect x="0" y="0" width="1080" height="320" class="card" />
+    <text x="32" y="48" class="question">Which language runs in a web browser?</text>
+
+    <g transform="translate(32,80)">
+      <rect x="0" y="0" width="980" height="48" rx="8" fill="#f6fbff" stroke="#e1efff" />
+      <text x="20" y="32" class="option">A) Python</text>
+    </g>
+
+    <g transform="translate(32,140)">
+      <rect x="0" y="0" width="980" height="48" rx="8" fill="#f6fbff" stroke="#e1efff" />
+      <text x="20" y="32" class="option">B) Java</text>
+    </g>
+
+    <g transform="translate(32,200)">
+      <rect x="0" y="0" width="980" height="48" rx="8" fill="#dff7df" stroke="#bfeec0" />
+      <text x="20" y="32" class="option">C) JavaScript</text>
+    </g>
+
+    <g transform="translate(32,260)">
+      <rect x="0" y="0" width="980" height="48" rx="8" fill="#fff6f6" stroke="#ffdede" />
+      <text x="20" y="32" class="option">D) C++</text>
+    </g>
+  </g>
+
+  <!-- Footer / progress -->
+  <g transform="translate(60,540)">
+    <rect x="0" y="0" width="1080" height="80" rx="10" fill="#ffffff" stroke="#e6eefb" />
+    <text x="32" y="48" class="option">Question 3 of 10</text>
+    <rect x="240" y="30" width="600" height="16" rx="8" fill="#eef6ff" />
+    <rect x="240" y="30" width="180" height="16" rx="8" fill="#7AA7FF" />
+  </g>
+</svg>
