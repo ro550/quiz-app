@@ -6,7 +6,6 @@ A lightweight, responsive quiz application built with HTML, CSS, and JavaScript.
 
 Quiz App is a small web application that lets users take timed multiple-choice quizzes and see immediate feedback and final scores. The UI is responsive and designed to work on both desktop and mobile devices. The app stores high scores locally (in the browser) so users can track their progress across sessions.
 
-The repository is primarily built with JavaScript (68.5%), CSS (19.7%), and HTML (11.8%).
 
 ## Technologies Used
 
@@ -26,6 +25,10 @@ The repository is primarily built with JavaScript (68.5%), CSS (19.7%), and HTML
 - Responsive and mobile-friendly UI
 - Progress indicator for remaining questions
 - Keyboard accessible controls for quick answering
+
+##  Screenshots
+![Start screen](image.png)
+![Rsults screen](image-3.png)
 
 ## Getting Started
 
