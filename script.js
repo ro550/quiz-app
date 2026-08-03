@@ -73,7 +73,6 @@ function restartQuiz() {
 }
 
 function loadQuestion() {
-    // updateProgressBar();
     startTimer();
     quiz.isAnswered = false;
     const qstn = quizQuestions[quiz.currentIndex];
@@ -82,12 +81,13 @@ function loadQuestion() {
 
     optionButtons.forEach((btn, index) => {
         btn.textContent = qstn.options[index];
-        btn.classname = "option-btn"; // reset any correct/wrong styling from last question
+        btn.className = "option-btn"; // reset any correct/wrong styling from last question
         btn.disabled = false;
     });
 
     questionCounter.textContent = `Question ${quiz.currentIndex + 1} of ${quizQuestions.length}` ;
     scoreDisplay.textContent = `Score: ${quiz.score}` ;
+    updateProgressBar();
 
 }
 
@@ -219,9 +219,9 @@ function showReview() {
            option.className = "review-option";
            option.textContent = optionText;
            if (index === answer.correctIndex) {
-            option.classList.add("Correct");
-           } else if (index === selectedIndex) {
-            option.classList.add("Wrong");
+            option.classList.add("correct");
+           } else if (index === answer.selectedIndex) {
+            option.classList.add("wrong");
            }
            card.appendChild(option);
         });
